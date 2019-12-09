@@ -50,5 +50,6 @@ movement_right={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+quality/directional_shadow/size=320
+quality/directional_shadow/size.mobile=256
 environment/default_environment="res://default_env.tres"
