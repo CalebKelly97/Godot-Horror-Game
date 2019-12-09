@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tileset_test.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://src/FlashingLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[node name="MainMap" type="Spatial"]
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+
+[node name="GridMap" type="GridMap" parent="Navigation/NavigationMeshInstance"]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 2, 65525, 1, 65531, 65525, 1, 65533, 65525, 1, 65534, 65525, 1, 65535, 65525, 1, 65536, 65525, 0, 65537, 65525, 0, 65539, 65525, 0, 131065, 65525, 0, 131066, 65525, 0, 131068, 65525, 0, 2, 65526, 1, 65528, 65526, 1, 65529, 65526, 1, 65530, 65526, 1, 65531, 65526, 1, 65533, 65526, 1, 65534, 65526, 1, 65535, 65526, 1, 65536, 65526, 0, 65537, 65526, 0, 65539, 65526, 0, 131068, 65526, 0, 2, 65527, 1, 65531, 65527, 1, 65533, 65527, 1, 65534, 65527, 1, 65535, 65527, 1, 65536, 65527, 0, 65537, 65527, 0, 65539, 65527, 0, 131063, 65527, 0, 131064, 65527, 0, 131065, 65527, 0, 131066, 65527, 0, 131068, 65527, 0, 131074, 65527, 2, 1, 65528, 1, 2, 65528, 1, 3, 65528, 1, 65531, 65528, 1, 65534, 65528, 1, 65536, 65528, 0, 65540, 65528, 0, 131066, 65528, 0, 131068, 65528, 0, 131069, 65528, 0, 131071, 65528, 0, 196606, 65528, 2, 0, 65529, 1, 1, 65529, 1, 2, 65529, 1, 3, 65529, 1, 4, 65529, 1, 65530, 65529, 1, 65531, 65529, 1, 65532, 65529, 1, 65533, 65529, 1, 65534, 65529, 1, 65535, 65529, 1, 131066, 65529, 0, 1, 65530, 1, 2, 65530, 1, 3, 65530, 1, 65536, 65530, 0, 65540, 65530, 0, 131065, 65530, 0, 131066, 65530, 0, 131067, 65530, 0, 131068, 65530, 0, 131069, 65530, 0, 131070, 65530, 0, 131071, 65530, 0, 2, 65531, 1, 65536, 65531, 0, 65537, 65531, 0, 65539, 65531, 0, 65540, 65531, 0, 131074, 65531, 2, 1, 65532, 1, 2, 65532, 1, 3, 65532, 1, 65536, 65532, 0, 65540, 65532, 0, 1, 65533, 1, 2, 65533, 1, 3, 65533, 1, 65536, 65533, 0, 65540, 65533, 0, 1, 65534, 1, 2, 65534, 1, 3, 65534, 1, 65536, 65534, 0, 65540, 65534, 0, 65536, 65535, 0, 65537, 65535, 0, 65538, 65535, 0, 65539, 65535, 0, 65540, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 2, 0 )
+}
+
+[node name="LightContainer" type="Spatial" parent="Navigation/NavigationMeshInstance/GridMap"]
+
+[node name="FlashingLight" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.02761, 3.91425, -10.0685 )
+
+[node name="FlashingLight2" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.17482, 4.10773, -15.8735 )
+
+[node name="FlashingLight3" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.40697, 4.10773, -12.7264 )
+
+[node name="SpotLight" type="SpotLight" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.4352, 5.37723, -2.68837 )
+light_energy = 5.0
+
+[node name="SpotLight3" type="SpotLight" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.52094, 5.37723, -2.4657 )
+light_energy = 5.0
+
+[node name="SpotLight2" type="SpotLight" parent="Navigation/NavigationMeshInstance/GridMap/LightContainer"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.91318, 5.37723, -19.488 )
+light_energy = 5.0
+
+[node name="Player" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.309, 1, -4.309 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
